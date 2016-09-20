@@ -35,18 +35,37 @@ describe('SimpleDate', function() {
         expect(tmp.eq(tmp2)).to.be(false);    
     });
     it("Compare with SimpleDate (greater than other)", function () {
+        var tmp1 = new SimpleDate(2013,12,20);
         var tmp2 = new SimpleDate(2012,12,20);
-        expect(tmp.gt(tmp2)).to.be(true);    
+        expect(tmp1.gt(tmp2)).to.be(true);    
     });
     it("Compare with SimpleDate (less than other)", function () {
+        var tmp1 = new SimpleDate(2013,12,20);
         var tmp2 = new SimpleDate(2014,12,20);
-        expect(tmp.lt(tmp2)).to.be(true);    
+        expect(tmp1.lt(tmp2)).to.be(true);    
     });
+    it("Check edge case (not greater than other)", function () {
+        var tmp1 = new SimpleDate(2012,12,20);
+        var tmp2 = new SimpleDate(2012,12,20);
+        expect(tmp1.gt(tmp2)).to.be(false);    
+    });
+    it("Compare with SimpleDate (less than other)", function () {
+        var tmp1 = new SimpleDate(2013,12,20);
+        var tmp2 = new SimpleDate(2014,12,20);
+        expect(tmp1.lt(tmp2)).to.be(true);    
+    });
+    it("Check edge case (not greater than other)", function () {
+        var tmp1 = new SimpleDate(2012,12,20);
+        var tmp2 = new SimpleDate(2012,12,20);
+        expect(tmp1.lt(tmp2)).to.be(false);    
+    });
+
+
     it("Clone SimpleDate and check equal", function () {
         var tmp2 = new SimpleDate(tmp);
         expect(tmp.eq(tmp2)).to.be(true);
     });
-    it("Clone Date and check equal", function () {
+    it("Create Date and check equal", function () {
         var tmp = new Date();
         var tmp2 = new SimpleDate(tmp);
         expect(tmp2.eq(tmp)).to.be(true);
@@ -88,76 +107,76 @@ describe('SimpleDate', function() {
     it("Yesterday in text", function () {
         var tmp2 = new SimpleDate(new Date());
         tmp2.deltaDays(-1);
-        var text = tmp2.daysFromTodayInText()
+        var text = tmp2.daysFromTodayAsText()
         expect(text).to.equal("Igår");
     });
 
     it("Today in text", function () {
         var tmp2 = new SimpleDate(new Date());
-        var text = tmp2.daysFromTodayInText()
+        var text = tmp2.daysFromTodayAsText()
         expect(text).to.equal("Idag");
     });
 
     it("Five days ago in text", function () {
         var tmp2 = new SimpleDate(new Date());
         tmp2.deltaDays(-5);
-        var text = tmp2.daysFromTodayInText()
+        var text = tmp2.daysFromTodayAsText()
         expect(text).to.equal("För fem dagar sedan");
     });
 
     it("Two weeks ago in text", function () {
         var tmp2 = new SimpleDate(new Date());
         tmp2.deltaDays(-14);
-        var text = tmp2.daysFromTodayInText()
+        var text = tmp2.daysFromTodayAsText()
         expect(text).to.equal("För 14 dagar sedan");
     });
 
     it("Twelve days in the future in text", function () {
         var tmp2 = new SimpleDate(new Date());
         tmp2.deltaDays(12);
-        var text = tmp2.daysFromTodayInText()
+        var text = tmp2.daysFromTodayAsText()
         expect(text).to.equal("Om tolv dagar");
     });
 
     it("Two weeks in the future in text", function () {
         var tmp2 = new SimpleDate(new Date());
         tmp2.deltaDays(14);
-        var text = tmp2.daysFromTodayInText()
+        var text = tmp2.daysFromTodayAsText()
         expect(text).to.equal("Om 14 dagar");
     });
 
     it("Twelve days in the future in text, long form", function () {
         var tmp2 = new SimpleDate(new Date());
         tmp2.deltaDays(12);
-        var text = tmp2.daysFromTodayInText(true)
+        var text = tmp2.daysFromTodayAsText(true)
         expect(text).to.equal("Om tolv dagar");
     });
 
     it("Two weeks in the future in text, long form", function () {
         var tmp2 = new SimpleDate(new Date());
         tmp2.deltaDays(14);
-        var text = tmp2.daysFromTodayInText(true)
+        var text = tmp2.daysFromTodayAsText(true)
         expect(text).to.equal("Om två veckor");
     });
 
     it("16 days in the future in text, long form", function () {
         var tmp2 = new SimpleDate(new Date());
         tmp2.deltaDays(16);
-        var text = tmp2.daysFromTodayInText(true)
+        var text = tmp2.daysFromTodayAsText(true)
         expect(text).to.equal("Om två veckor och två dagar");
     });
 
     it("Twelve days ago in text, long form", function () {
         var tmp2 = new SimpleDate(new Date());
         tmp2.deltaDays(-12);
-        var text = tmp2.daysFromTodayInText(true)
+        var text = tmp2.daysFromTodayAsText(true)
         expect(text).to.equal("För tolv dagar sedan");
     });
 
     it("Two weeks ago in text, long form", function () {
         var tmp2 = new SimpleDate(new Date());
         tmp2.deltaDays(-14);
-        var text = tmp2.daysFromTodayInText(true)
+        var text = tmp2.daysFromTodayAsText(true)
         expect(text).to.equal("För två veckor sedan");
     });
 });
