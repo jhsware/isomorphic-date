@@ -5,11 +5,11 @@ When you only want to work with days and dates. Skipping the hassle of time and 
 ###Examples:###
 
 ```
-var holidays = require('isomorphic-date/holidays/se_sv.js')
-var i18n = require('isomorphic-date/i18n/sv.js')
+var holidays = require('isomorphic-date').holidays.se_sv
+var i18n = require('isomorphic-date').i18n.sv
 
 // Create date object with provided translation files and i18n data
-var SimpleDate = require('isomorphic-date')(holidays, i18n)
+var SimpleDate = require('isomorphic-date').createSimpleDate(holidays, i18n)
 
 // Create a date by passing a js date obj
 var today = new SimpleDate(new Date())
