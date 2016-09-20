@@ -1,9 +1,9 @@
 var assert = require('assert');
 var expect = require('expect.js');
 
-var holidays = require('../lib/holidays/se_sv');
-var i18n = require('../lib/i18n/sv');
-var SimpleDate = require('../lib')(holidays, i18n); 
+var holidays = require('../lib').holidays.se_sv;
+var i18n = require('../lib').i18n.sv;
+var SimpleDate = require('../lib').createSimpleDate(holidays, i18n); 
 
 describe('SimpleDate', function() {
     
