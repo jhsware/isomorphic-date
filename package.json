@@ -1,6 +1,6 @@
 {
   "name": "isomorphic-date",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Just dates, no time, no dependencies",
   "author": {
     "name": "Sebastian Ware",
