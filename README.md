@@ -1,4 +1,5 @@
 # isomorphic-date #
+[![Build Status](https://travis-ci.org/jhsware/isomorphic-date.svg?branch=master)](https://travis-ci.org/jhsware/isomorphic-date)
 
 When you only want to work with days and dates. Skipping the hassle of time and timezones.
 
